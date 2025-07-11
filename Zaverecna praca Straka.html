@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boxerský klub MGP Košice okolie Baška</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      scroll-behavior: smooth;
+      width: 96%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #111;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 3%;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    header {
+      position: relative;
+      height: 60vh;
+      background-image: url('https://media.newyorker.com/photos/64c2c66669af7f86491421f7/1:1/w_1706,h_1706,c_limit/Sanneh-Boxing-Virtuosos.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 80px;
+    }
+
+    .quote {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 20px;
+      font-size: 1.4em;
+      border-radius: 10px;
+      max-width: 90%;
+      text-align: center;
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    section {
+      padding: 40px 3%;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #222;
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        height: 50vh;
+        padding-bottom: 60px;
+      }
+      .quote {
+        font-size: 1.1em;
+        padding: 15px;
+      }
+      nav a {
+        margin: 0 2%;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .quote {
+        font-size: 1em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#trener">Tréner</a>
+    <a href="#treningy">Tréningy</a>
+    <a href="#cennik">Cenník</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <header>
+    <div class="quote">"Box nie je len o sile, ale o srdci a odhodlaní."</div>
+  </header>
+
+  <section id="trener">
+    <h2>Tréner</h2>
+    <p>Jožo Kladivo, skúsený tréner a majster v Moldave nad Bodvou, vedie tréningy s dôrazom na disciplínu a osobný rast každého člena klubu.</p>
+  </section>
+
+  <section id="treningy">
+    <h2>Tréningy</h2>
+    <p>Tréningy prebiehajú od pondelka do piatka, každý deň od 16:30 do 20:30. Vhodné pre začiatočníkov aj pokročilých.</p>
+  </section>
+
+  <section id="cennik">
+    <h2>Cenník</h2>
+    <p>• Mesačný poplatok: 30 €<br>
+       • Jednorazový vstup: 5 €<br>
+       • Skupinové tréningy: 40 €/mesačne<br>
+       • Individuálne tréningy: dohodou</p>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Boxerský klub MGP Košice okolie Baška<br>
+       Telefón: +421 904 370 596<br>
+       Email: info@mgpbox.sk</p>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function revealOnScroll() {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>
